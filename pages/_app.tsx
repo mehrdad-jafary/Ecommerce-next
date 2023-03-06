@@ -1,17 +1,14 @@
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
-import theme from "@/theme";
 import createEmotionCache from "@/theme/createEmotionCache";
 import cacheRtl from "@/theme/createRTLCache";
-
-const clientSideEmotionCache = createEmotionCache();
+import MyThemeProvider from "@/theme";
 
 interface MyAppProps extends AppProps {
 	emotionCache?: EmotionCache;
 	cachertl?: EmotionCache;
 }
+const clientSideEmotionCache = createEmotionCache();
 
 export default function App(props: MyAppProps) {
 	const {
@@ -24,10 +21,9 @@ export default function App(props: MyAppProps) {
 		<>
 			<CacheProvider value={emotionCache}>
 				<CacheProvider value={cachertl}>
-					<ThemeProvider theme={theme}>
-						<CssBaseline />
+					<MyThemeProvider>
 						<Component {...pageProps} />
-					</ThemeProvider>
+					</MyThemeProvider>
 				</CacheProvider>
 			</CacheProvider>
 		</>

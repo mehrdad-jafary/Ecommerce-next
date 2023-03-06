@@ -8,7 +8,8 @@ import Document, {
 } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
-import theme, { IRANSansWeb } from "@/theme";
+import { IRANSansWeb } from "@/theme";
+import { useTheme } from "@mui/material/styles";
 import createEmotionCache from "@/theme/createEmotionCache";
 
 interface MyDocumentProps extends DocumentProps {
@@ -16,7 +17,7 @@ interface MyDocumentProps extends DocumentProps {
 }
 
 export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
-	console.log(emotionStyleTags);
+	const theme = useTheme();
 	return (
 		<Html lang='fa' dir='rtl' className={IRANSansWeb.className}>
 			<Head>
