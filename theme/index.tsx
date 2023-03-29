@@ -4,6 +4,7 @@ import { red } from "@mui/material/colors";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import createPalette from "@mui/material/styles/createPalette";
 
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
@@ -40,10 +41,10 @@ function MyThemeProvider(props: PropsWithChildren) {
 				palette: {
 					mode: mode,
 					primary: {
-						main: "#556cd6",
+						main: "#00a693",
 					},
 					secondary: {
-						main: "#19857b",
+						main: "#364345",
 					},
 					error: {
 						main: red.A400,
@@ -51,6 +52,7 @@ function MyThemeProvider(props: PropsWithChildren) {
 				},
 				typography: {
 					fontFamily: IRANSansWeb.style.fontFamily,
+					fontSize: 14,
 					h1: { fontWeight: 300 },
 					h2: { fontWeight: 300 },
 					h3: { fontWeight: 300 },
@@ -63,6 +65,7 @@ function MyThemeProvider(props: PropsWithChildren) {
 		[mode]
 	);
 	const { children } = props;
+	console.log(theme);
 	return (
 		<>
 			<ColorModeContext.Provider value={colorMode}>
