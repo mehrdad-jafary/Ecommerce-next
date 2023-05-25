@@ -1,10 +1,8 @@
 import { PropsWithChildren, createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import createPalette from "@mui/material/styles/createPalette";
 
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
@@ -39,20 +37,21 @@ function MyThemeProvider(props: PropsWithChildren) {
 			createTheme({
 				direction: "rtl",
 				palette: {
+					background: {
+						default: mode === "dark" ? "#1b2223" : "#fbfbfb",
+					},
 					mode: mode,
 					primary: {
 						main: "#00a693",
+						light: "#edfbfc",
 					},
 					secondary: {
 						main: "#364345",
 					},
-					error: {
-						main: red.A400,
-					},
 				},
 				typography: {
 					fontFamily: IRANSansWeb.style.fontFamily,
-					fontSize: 14,
+					fontSize: 12,
 					h1: { fontWeight: 300 },
 					h2: { fontWeight: 300 },
 					h3: { fontWeight: 300 },
@@ -65,7 +64,6 @@ function MyThemeProvider(props: PropsWithChildren) {
 		[mode]
 	);
 	const { children } = props;
-	console.log(theme);
 	return (
 		<>
 			<ColorModeContext.Provider value={colorMode}>

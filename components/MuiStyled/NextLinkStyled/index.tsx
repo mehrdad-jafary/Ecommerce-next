@@ -5,16 +5,16 @@ export const NextLinkRound = styled(Link)(({ theme }) => ({
 	color: theme.palette.text.primary,
 	textDecoration: "none",
 	transition: "0.4s",
-	backgroundColor: theme.palette.secondary.main,
+	backgroundColor: theme.palette.primary[theme.palette.mode],
 	"&:hover": {
 		backgroundColor: theme.palette.primary.main,
-		color: "#fff",
 	},
 	display: "flex",
 	justifyContent: "center",
 	alignItems: "center",
 	width: "36px",
 	height: "36px",
+	padding: "10px",
 	borderRadius: 50,
 }));
 
