@@ -2,7 +2,7 @@ import { PropsWithChildren } from "react";
 import { Container } from "@mui/material";
 
 function FluidContainer({ children }: PropsWithChildren) {
-	return <Container maxWidth='xl'>{children}</Container>;
+	return <Container maxWidth='lg'>{children}</Container>;
 }
 
 export default FluidContainer;

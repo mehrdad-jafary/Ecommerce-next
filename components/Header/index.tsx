@@ -8,7 +8,7 @@ function Header() {
 	return (
 		<Box
 			component='header'
-			sx={({ palette, shadows }) => ({
+			sx={({ palette }) => ({
 				backgroundColor: palette.mode === "dark" ? palette.grey["900"] : "#fff",
 				borderBottom:
 					palette.mode === "dark" ? "none" : `solid 1px ${palette.grey["A400"]}`,

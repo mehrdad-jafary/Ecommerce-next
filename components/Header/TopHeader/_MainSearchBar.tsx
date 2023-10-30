@@ -44,6 +44,11 @@ function MainSearchBar() {
 		<>
 			<SearchInputStyles
 				onChange={handleSearch}
+				sx={(theme) => ({
+					[theme.breakpoints.down("md")]: {
+						display: "none",
+					},
+				})}
 				type='text'
 				id={id}
 				name='search'

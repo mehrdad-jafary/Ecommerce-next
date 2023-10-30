@@ -7,7 +7,14 @@ const BottomHeader = () => {
 	return (
 		<Box
 			component='nav'
-			sx={{ py: "15px", display: "flex", justifyContent: "space-between" }}>
+			sx={(theme) => ({
+				py: "15px",
+				display: "flex",
+				justifyContent: "space-between",
+				[theme.breakpoints.down("md")]: {
+					justifyContent: "space-around",
+				},
+			})}>
 			<MainNavigationLinks />
 			<SecondaryNavigationLinks />
 		</Box>

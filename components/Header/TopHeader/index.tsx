@@ -5,6 +5,9 @@ import Box from "@mui/material/Box";
 
 import NextLinkStyled from "@/components/MuiStyled/NextLinkStyled";
 
+import { useTheme } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 import UserProfileCartButton from "./_UserProfileCartButton";
 import MainSearchBar from "./_MainSearchBar";
 

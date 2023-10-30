@@ -15,7 +15,12 @@ const menuItemsArr = [
 
 function MainNavigationLinks() {
 	return (
-		<UlNavStyled>
+		<UlNavStyled
+			sx={(theme) => ({
+				[theme.breakpoints.down("md")]: {
+					display: "none",
+				},
+			})}>
 			<ListItem dense={true}>
 				<MegaMenu />
 			</ListItem>
@@ -48,7 +53,7 @@ function MainNavigationLinks() {
 				</ListItemText>
 			</ListItem>
 			<ListItem>
-				<NormalMenu text='سایر' menuItems={menuItemsArr} />
+				<NormalMenu text='سایر' menuItems={menuItemsArr} icon='ThreeDotsHorizontal' />
 			</ListItem>
 		</UlNavStyled>
 	);

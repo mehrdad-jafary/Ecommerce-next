@@ -14,13 +14,11 @@ import NextLinkStyled from "@/components/MuiStyled/NextLinkStyled";
 
 import useDropDownMenu from "@/hooks/useDropDownMenu";
 
-interface IDropDownMenuProps {
+function DropDownMenu(props: {
 	text?: string;
 	menuItems: { name: string; slug: string }[];
 	icon?: "ThreeDotsHorizontal" | "ThreeDotsVertical" | "KeyboardArrowDown";
-}
-
-function DropDownMenu(props: PropsWithChildren<IDropDownMenuProps>) {
+}) {
 	const { text, menuItems, icon } = props;
 	const { anchorEl, open, handleOpen, handleClose } = useDropDownMenu();
 	return (

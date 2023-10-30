@@ -8,7 +8,14 @@ import BadgeStyled from "@/components/MuiStyled/BadgeStyled";
 
 function UserProfileCartButton() {
 	return (
-		<Box sx={{ display: "flex", gap: "10px" }}>
+		<Box
+			sx={(theme) => ({
+				display: "flex",
+				gap: "10px",
+				[theme.breakpoints.down("md")]: {
+					display: "none",
+				},
+			})}>
 			<NextLinkRound href='/cart'>
 				<BadgeStyled badgeContent={1} color='warning'>
 					<ShoppingCartOutlined fontSize='small' />

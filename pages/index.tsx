@@ -1,39 +1,98 @@
+import Image from "next/image";
 import Header from "@/components/Header";
+import MainCarousel from "@/components/MainCarousel";
+import FluidContainer from "@/components/layout/FluidContainer";
+import Grid from "@mui/material/Unstable_Grid2";
+import { Typography } from "@mui/material";
+
+import Box from "@mui/material/Box";
+import NextLinkStyled from "@/components/MuiStyled/NextLinkStyled";
 
 export default function Home() {
 	return (
 		<>
 			<Header />
-			<main>
-				<h1>Main Content</h1>
-				<p>
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas sit
-					aspernatur id debitis ipsa animi sunt distinctio eaque, reprehenderit possimus
-					non voluptate nobis maiores adipisci nam. Odit quo possimus repudiandae corporis
-					culpa! Perferendis quas architecto dolor, quibusdam impedit, debitis, aliquid
-					consectetur dolore voluptatum ullam officiis dignissimos sapiente eveniet
-					molestias saepe deserunt recusandae in magnam odio molestiae? Autem impedit
-					sequi non sit dolores reiciendis. Minus incidunt repellat ipsam, eos ex illo
-					vitae dolore officia similique. Obcaecati ullam eos molestiae hic fugiat vel
-					pariatur est adipisci, exercitationem nihil quidem beatae dignissimos veniam id
-					error quibusdam distinctio et. Autem voluptate commodi odit accusantium ullam
-					explicabo excepturi sapiente cupiditate voluptatum, amet perspiciatis, quas odio
-					rem inventore debitis deserunt veritatis beatae! Porro tenetur error, amet ipsam
-					minima exercitationem ducimus inventore! Cumque deleniti omnis hic temporibus
-					quibusdam soluta, labore ad consectetur aliquid tempora quisquam, atque itaque
-					numquam maiores aperiam in est. Quo, quos quasi non earum minus expedita atque
-					at obcaecati. Esse culpa maiores pariatur iste molestias maxime excepturi vel
-					consequatur magni? Fugiat pariatur culpa tenetur quibusdam modi quo ipsa aut
-					officiis nihil provident incidunt quos magnam sequi consectetur, soluta quas
-					totam excepturi exercitationem doloremque! Quisquam ipsam delectus neque nam
-					aliquid soluta reprehenderit nemo impedit corrupti?
-				</p>
-			</main>
-			<footer>
-				<h1>Footer</h1>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa pariatur maxime
-				possimus praesentium saepe, at neque quas unde velit fugit!
-			</footer>
+			<FluidContainer>
+				<Box component='main' sx={{ direction: "rtl" }}>
+					<Typography variant='h1' gutterBottom>
+						Main Content
+					</Typography>
+
+					<Box
+						component='section'
+						sx={(theme) => ({
+							display: "grid",
+							gridTemplateColumns: "repeat(12, 1fr)",
+							justifyItems: "stretch",
+							alignItems: "start",
+
+							gap: 1,
+							"& > .carousel": {
+								gridColumn: "4 / -1",
+								gridRow: "1 / 3",
+								placeSelf: "center",
+							},
+							[theme.breakpoints.down("md")]: {
+								"& > .carousel": { gridColumn: "1 / -1", gridRow: "1 / 3" },
+							},
+						})}>
+						<MainCarousel />
+
+						<Box
+							component={"div"}
+							className='links'
+							sx={(theme) => ({
+								position: "relative",
+								height: 200,
+								borderRadius: 2,
+								overflow: "hidden",
+								gridColumn: "1 / span 3",
+								[theme.breakpoints.down("md")]: {
+									gridColumn: "1 / span 6",
+									height: 250,
+								},
+							})}>
+							<NextLinkStyled href={"/"}>
+								<Image
+									fill
+									style={{ objectFit: "cover" }}
+									src={"/images/hero-link-images/pc-builder.webp"}
+									alt={"pc-builder"}
+								/>
+							</NextLinkStyled>
+						</Box>
+
+						<Box
+							component={"div"}
+							className='links'
+							sx={(theme) => ({
+								height: 200,
+								position: "relative",
+								borderRadius: 2,
+								overflow: "hidden",
+								gridColumn: "1 / span 3",
+								[theme.breakpoints.down("md")]: {
+									gridColumn: "7  / span 6",
+									height: 250,
+								},
+							})}>
+							<NextLinkStyled href={"/"}>
+								<Image
+									fill
+									style={{ objectFit: "cover" }}
+									src={"/images/hero-link-images/credit-sales.webp"}
+									alt={"credit-sale"}
+								/>
+							</NextLinkStyled>
+						</Box>
+					</Box>
+				</Box>
+				<footer>
+					<h1>Footer</h1>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa pariatur maxime
+					possimus praesentium saepe, at neque quas unde velit fugit!
+				</footer>
+			</FluidContainer>
 		</>
 	);
 }
